@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
+        //读取图片所在的文件夹
         String imgPath = getImgPath();
         if (!TextUtils.isEmpty(imgPath)) {
             Log.d(TAG, "image path = " + imgPath);
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        //按照图片在文件夹中的顺序循环读取，依次进行识别。为了方便对比两家方案，只在点击Tencent方案时切换下一张图片
         if (mImgDir != null && mImgDir.exists() && mImageFiles != null) {
             final File imgFile = mImageFiles[mImgIndicator % mImageFiles.length];
             if (imgFile != null) {

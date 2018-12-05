@@ -20,6 +20,11 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+/**
+ * 腾讯通用OCR方案，技术文档按照<a>https://ai.qq.com/doc/ocrgeneralocr.shtml</a>进行对接
+ *
+ * @author Affy
+ */
 public class TencentOcr {
     private long mStartOcrTime = 0;
     static final int MSG_OCR_RESULT = 0;
@@ -36,6 +41,12 @@ public class TencentOcr {
                 .build();
     }
 
+    /**
+     * 发起识别
+     *
+     * @param bitmap        要进行识别的图片
+     * @param resultHandler 识别结果回传到主线程进行展示。信息包括ocr本地计算时间，发起识别到获取结果时间，云端返回信息
+     */
     public void start(final Bitmap bitmap, final Handler resultHandler) {
         try {
             mStartOcrTime = System.currentTimeMillis();
