@@ -1,0 +1,10 @@
+/build
+/gradle
+/.gradle
+/.idea
+/*.iml
+*.backup
+local.properties
+/.project
+/.settings
+/.classpath
